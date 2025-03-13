@@ -14,7 +14,7 @@ class TodoController extends Controller
         return view('index', compact('todos')); // 'index' に $todos を渡す
     }
 
-    public function store(Request $request)
+    public function store(TodoRequest $request)
     {
         // バリデーション
         $request->validate([
