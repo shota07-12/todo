@@ -6,11 +6,25 @@
 @endsection
 
 @section('content')
-@if(session('success'))
-<div class="todo__alert--success">
-    {{ session('success') }}
+<div class="todo__alert">
+    @if(session('success'))
+    <div class="todo__alert--success">
+        {{ session('success') }}
+    </div>
+    @endif
+
+    <!-- ✅ バリデーションエラーのメッセージを追加 -->
+    @if ($errors->any())
+    <div class="todo__alert--danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
 </div>
-@endif
+
 
 <div class="todo__content">
     <form action="{{ route('todos.store') }}" method="POST">
