@@ -16,16 +16,16 @@ class TodoController extends Controller
 
     public function store(Request $request)
     {
-        // バリデーション（必要なら）
+        // バリデーション
         $request->validate([
             'title' => 'required|string|max:255',
-            'description' => 'nullable|string',
+            'content' => 'nullable|string|max:20', // content に変更
         ]);
 
         // 新しいToDoを作成
         Todo::create([
             'title' => $request->input('title'),
-            'description' => $request->input('description'),
+            'content' => $request->input('content'), // description → content に変更
         ]);
 
         return redirect()->route('todos.index')->with('success', 'ToDoを作成しました！');
