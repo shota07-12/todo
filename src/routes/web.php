@@ -23,3 +23,6 @@ Route::post('/todos', [TodoController::class, 'store'])->name('todos.store'); //
 
 // ✨ 編集ページのルートを追加
 Route::get('/todos/{id}/edit', [TodoController::class, 'edit'])->name('todos.edit');
+
+// ToDo 削除用のルートを追加
+Route::delete('/todos/{id}', [TodoController::class, 'destroy'])->name('todos.destroy');

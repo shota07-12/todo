@@ -30,4 +30,12 @@ class TodoController extends Controller
 
         return redirect()->route('todos.index')->with('success', 'ToDoを作成しました！');
     }
+
+    public function destroy($id)
+    {
+        $todo = Todo::findOrFail($id); // IDに該当するToDoを取得
+        $todo->delete(); // 削除
+
+        return redirect()->route('todos.index')->with('success', 'ToDoを削除しました！');
+    }
 }
