@@ -31,6 +31,22 @@ class TodoController extends Controller
         return redirect()->route('todos.index')->with('success', 'ToDoを作成しました！');
     }
 
+    public function update(TodoRequest $request, $id)
+    {
+        // ✅ 指定された ID の ToDo を取得
+        $todo = Todo::findOrFail($id);
+
+        // ✅ 入力値を取得（title と content）
+        $todo->update([
+            'title' => $request->input('title'),
+            'content' => $request->input('content'),
+        ]);
+
+        // ✅ 更新完了メッセージを表示
+        return redirect()->route('todos.index')->with('success', 'ToDoを更新しました！');
+    }
+
+
     public function destroy($id)
     {
         $todo = Todo::findOrFail($id); // IDに該当するToDoを取得

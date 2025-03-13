@@ -52,9 +52,12 @@
                     <p class="update-form__item-input">{{ $todo->title }}</p> <!-- ✅ title を追加 -->
                 </td>
                 <td class="todo-table__item">
-                    <form class="update-form"> <!-- ✅ update-form を復活 -->
+                    <form class="update-form" action="{{ route('todos.update', $todo->id) }}" method="POST"> <!-- ✅ フォームのアクションとメソッドを追加 -->
+                        @method('PATCH')
+                        @csrf
                         <div class="update-form__item">
-                            <p class="update-form__item-input">{{ $todo->content }}</p>
+                            <input class="update-form__item-input" type="text" name="content" value="{{ $todo->content }}">
+                            <input type="hidden" name="id" value="{{ $todo->id }}">
                         </div>
                         <div class="update-form__button">
                             <button class="update-form__button-submit" type="submit">更新</button>
