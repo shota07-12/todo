@@ -17,7 +17,7 @@
         @csrf
         <div class="create-form__item">
             <input class="create-form__item-input" type="text" name="title" placeholder="タイトルを入力">
-            <input class="create-form__item-input" type="text" name="content" placeholder="内容を入力"> <!-- 🔹 追加 -->
+            <input class="create-form__item-input" type="text" name="content" placeholder="内容を入力">
         </div>
         <div class="create-form__button">
             <button class="create-form__button-submit" type="submit">作成</button>
@@ -27,17 +27,20 @@
     <div class="todo-table">
         <table class="todo-table__inner">
             <tr class="todo-table__row">
-                <th class="todo-table__header">Todo</th>
-                <th class="todo-table__header">内容</th> <!-- 🔹 追加 -->
+                <th class="todo-table__header">タイトル</th> <!-- ✅ 「Todo」→「タイトル」に変更 -->
+                <th class="todo-table__header">内容</th>
                 <th class="todo-table__header">操作</th>
             </tr>
 
             @foreach ($todos as $todo)
             <tr class="todo-table__row">
                 <td class="todo-table__item">
-                    <form class="update-form">
+                    <p class="update-form__item-input">{{ $todo->title }}</p> <!-- ✅ title を追加 -->
+                </td>
+                <td class="todo-table__item">
+                    <form class="update-form"> <!-- ✅ update-form を復活 -->
                         <div class="update-form__item">
-                            <p class="update-form__item-input">{{ $todo->content }}</p> <!-- 🔹 追加 -->
+                            <p class="update-form__item-input">{{ $todo->content }}</p>
                         </div>
                         <div class="update-form__button">
                             <button class="update-form__button-submit" type="submit">更新</button>
