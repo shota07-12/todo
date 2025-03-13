@@ -10,8 +10,7 @@ class TodoController extends Controller
 {
     public function index()
     {
-    return view('index');
+        $todos = Todo::all(); // データベースから全てのToDoを取得
+        return view('index', compact('todos')); // 'index' に $todos を渡す
     }
 }
-
-
