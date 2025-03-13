@@ -7,7 +7,7 @@
 
 @section('content')
 @if(session('success'))
-<div class="alert alert-success">
+<div class="todo__alert--success">
     {{ session('success') }}
 </div>
 @endif
