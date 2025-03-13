@@ -32,6 +32,9 @@ class TodoRequest extends FormRequest
     public function messages()
     {
         return [
+            'title.required' => 'タイトルを入力してください',
+            'title.string' => 'タイトルを文字列で入力してください',
+            'title.max' => 'タイトルは255文字以下で入力してください',
             'content.required' => 'Todoを入力してください',
             'content.string' => 'Todoを文字列で入力してください',
             'content.max' => 'Todoを20文字以下で入力してください',

@@ -52,10 +52,13 @@
                     <p class="update-form__item-input">{{ $todo->title }}</p> <!-- ✅ title を追加 -->
                 </td>
                 <td class="todo-table__item">
-                    <form class="update-form" action="{{ route('todos.update', $todo->id) }}" method="POST"> <!-- ✅ フォームのアクションとメソッドを追加 -->
+                    <form class="update-form" action="{{ route('todos.update', $todo->id) }}" method="POST">
                         @method('PATCH')
                         @csrf
                         <div class="update-form__item">
+                            <!-- ✅ タイトルの入力フィールドを追加 -->
+                            <input class="update-form__item-input" type="text" name="title" value="{{ $todo->title }}">
+                            <!-- ✅ 内容の入力フィールド -->
                             <input class="update-form__item-input" type="text" name="content" value="{{ $todo->content }}">
                             <input type="hidden" name="id" value="{{ $todo->id }}">
                         </div>
@@ -64,6 +67,7 @@
                         </div>
                     </form>
                 </td>
+
                 <td class="todo-table__item">
                     <form class="delete-form" action="{{ route('todos.destroy', $todo->id) }}" method="POST" style="display:inline;">
                         @csrf

@@ -38,7 +38,7 @@ class TodoController extends Controller
 
         // ✅ 入力値を取得（title と content）
         $todo->update([
-            'title' => $request->input('title'),
+            'title' => $request->input('title') ?? $todo->title, // ✅ 空なら元のタイトルを維持
             'content' => $request->input('content'),
         ]);
 
