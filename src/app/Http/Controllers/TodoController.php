@@ -25,7 +25,7 @@ class TodoController extends Controller
         // 新しいToDoを作成
         Todo::create([
             'title' => $request->input('title'),
-            'content' => $request->input('content'), // description → content に変更
+            'content' => $request->input('content') ?? '(未設定)', // description → content に変更
         ]);
 
         return redirect()->route('todos.index')->with('success', 'ToDoを作成しました！');
