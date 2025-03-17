@@ -30,7 +30,7 @@
             <input class="create-form__item-input" type="text" name="name" placeholder="カテゴリ名を入力">
         </div>
         <div class="create-form__button">
-            <button class="create-form__button-submit" type="submit">作成</button>
+            <button class="create-form__button-submit" type="submit" onclick="console.log('ボタンがクリックされた');">作成</button>
         </div>
     </form>
 
