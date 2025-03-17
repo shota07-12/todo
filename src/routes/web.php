@@ -33,4 +33,4 @@ Route::delete('/todos/{id}', [TodoController::class, 'destroy'])->name('todos.de
 
 Route::get('/categories', [CategoryController::class, 'index']);
 
-Route::post('/categories', [CategoryController::class, 'store']);
+Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');

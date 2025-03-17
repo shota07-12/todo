@@ -27,7 +27,7 @@
     <form class="create-form" action="{{ route('categories.store') }}" method="POST">
         @csrf
         <div class="create-form__item">
-            <input class="create-form__item-input" type="text" name="name">
+            <input class="create-form__item-input" type="text" name="name" placeholder="カテゴリ名を入力">
         </div>
         <div class="create-form__button">
             <button class="create-form__button-submit" type="submit">作成</button>
