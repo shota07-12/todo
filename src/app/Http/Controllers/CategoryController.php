@@ -16,13 +16,6 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
 
-        $request->validate([
-            'name' => 'required|string|max:255',
-        ]);
-
-        $category = $request->only(['name']);
-        Category::create($category);
-
-        return redirect('/categories')->with('message', 'カテゴリを作成しました');
+        dd($request->all()); // ここでデータを確認
     }
 }
