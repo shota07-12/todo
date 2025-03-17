@@ -20,8 +20,9 @@ class CategoryController extends Controller
             'name' => 'required|string|max:255',
         ]);
 
-        $category = $request->only(['name']);
-        Category::create($category);
+        $category = new Category();
+        $category->name = $request->name;
+        $category->save();
 
         return redirect('/categories')->with('message', 'カテゴリを作成しました');
     }
