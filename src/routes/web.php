@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodoController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +30,7 @@ Route::get('/todos/{id}/edit', [TodoController::class, 'edit'])->name('todos.edi
 
 // ToDo 削除用のルート
 Route::delete('/todos/{id}', [TodoController::class, 'destroy'])->name('todos.destroy');
+
+Route::get('/categories', [CategoryController::class, 'index']);
+
+Route::post('/categories', [CategoryController::class, 'store']);

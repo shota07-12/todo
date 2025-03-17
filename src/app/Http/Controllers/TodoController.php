@@ -6,13 +6,17 @@ use App\Http\Requests\TodoRequest;
 use App\Models\Todo;
 use Illuminate\Http\Request;
 
+use App\Models\Category;
+
 class TodoController extends Controller
 {
     public function index()
     {
-        $todos = Todo::all(); // データベースから全てのToDoを取得
-        return view('index', compact('todos')); // 'index' に $todos を渡す
+        $todos = Todo::with('category')->get(); // ✅ カテゴリも一緒に取得
+        $categories = Category::all(); // ✅ カテゴリのリストを取得
+        return view('index', compact('todos', 'categories'));
     }
+
 
     public function store(TodoRequest $request)
     {

@@ -13,6 +13,7 @@
     color: #842029;
 }
 
+/* メインコンテンツ */
 .todo__content {
     margin: 0 auto;
     padding: 30px 15px;
@@ -24,40 +25,63 @@
 }
 
 /* フォームデザイン */
-.create-form {
+.create-form,
+.search-form {
+    /* ✅ 検索フォームも統一 */
     display: flex;
     justify-content: space-between;
     width: 70%;
+    margin-bottom: 15px;
+    text-align: center;
 }
 
-.create-form__item {
+.create-form__item,
+.search-form__item {
+    display: flex;
     width: 70%;
 }
 
-.create-form__item-input {
+.create-form__item-input,
+.search-form__item-input {
+    margin-right: 10px;
     padding: 10px;
-    width: 100%;
+    width: 70%;
     height: 40px;
     border: 1px solid #ccc;
     border-radius: 3px;
     font-size: 16px;
 }
 
-.create-form__button {
+/* ✅ セレクトボックスのデザインを追加 */
+.create-form__item-select,
+.search-form__item-select {
+    padding: 10px;
+    width: 30%;
+    height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    appearance: none;
+}
+
+.create-form__button,
+.search-form__button {
     width: 20%;
 }
 
-.create-form__button-submit {
-    width: 80px;
+.create-form__button-submit,
+.search-form__button-submit {
+    padding: 10px;
+    width: 100%;
     height: 40px;
     border: none;
     border-radius: 3px;
-    background: #333;
+    background: #000;
     color: #fff;
     cursor: pointer;
 }
 
-.create-form__button-submit:hover {
+.create-form__button-submit:hover,
+.search-form__button-submit:hover {
     background: #555;
 }
 
@@ -82,6 +106,11 @@
     font-weight: bold;
 }
 
+/* ✅ ヘッダーの余白調整 */
+.todo-table__header-span {
+    margin-right: 40%;
+}
+
 /* 更新フォーム */
 .update-form {
     display: flex;
@@ -90,7 +119,9 @@
 }
 
 .update-form__item {
-    width: 80%;
+    width: 40%;
+    /* ✅ 幅を調整 */
+    line-height: 50%;
 }
 
 .update-form__item-input {
@@ -98,6 +129,12 @@
     outline: none;
     border: none;
     font-size: 16px;
+}
+
+/* ✅ 更新フォームのテキスト調整 */
+.update-form__item-p {
+    text-align: left;
+    font-size: 13px;
 }
 
 /* ボタンデザイン */
