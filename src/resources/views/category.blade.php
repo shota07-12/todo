@@ -24,7 +24,7 @@
 
 <div class="category__content">
     <!-- ✅ カテゴリ新規作成フォーム -->
-    <form class="create-form" action="{{ route('categories.store') }}" method="POST">
+    <form class="create-form" action="/categories" method="POST">
         @csrf
         <div class="create-form__item">
             <input class="create-form__item-input" type="text" name="name" placeholder="カテゴリ名を入力">
@@ -33,6 +33,7 @@
             <button class="create-form__button-submit" type="submit">作成</button>
         </div>
     </form>
+
 
     <!-- ✅ カテゴリ一覧表示 -->
     <div class="category-table">
